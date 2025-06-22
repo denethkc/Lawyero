@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930721148873",
+    "project_id": "lawyeroapp",
+    "storage_bucket": "lawyeroapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930721148873:android:d6d01968fdb7ff1dbd0218",
+        "android_client_info": {
+          "package_name": "com.s23010529.lawyero"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDam5ixBgfq-kCcZW9GaG6itTVx8GXz01g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gradiant"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <!-- Profile Image -->
+
+
+        <EditText
+            android:id="@+id/editme"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/box"
+            android:gravity="top"
+            android:hint="Tell about yourself..."
+            android:inputType="textMultiLine"
+            android:lines="6"
+            android:maxLines="10"
+            android:padding="16dp"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelAbout" />
+
+        <EditText
+            android:id="@+id/editcontact"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="232dp"
+            android:background="@drawable/box"
+            android:gravity="top"
+            android:hint="Edit contact..."
+            android:inputType="textMultiLine"
+            android:lines="6"
+            android:maxLines="10"
+            android:padding="16dp"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelAbout" />
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="326dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="1360dp"
+            android:backgroundTint="#C6355EC6"
+            android:text="Delete account"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.564"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editlocation"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/box"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Your location will show here"
+            android:paddingStart="16dp"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labellocation" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="220dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="1132dp"
+            android:backgroundTint="#C6355EC6"
+            android:text="Save Profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.547"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/chooselocation"
+            android:layout_width="326dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="#C6355EC6"
+            android:text="Choose location"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.564"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editlocation" />
+
+        <Button
+            android:id="@+id/admin"
+            android:layout_width="326dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="1204dp"
+            android:backgroundTint="#C6355EC6"
+            android:text="Contact admin/ Support"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.564"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/labelAbout"
+            android:layout_width="140dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="536dp"
+            android:text="About me"
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/labelcontact"
+            android:layout_width="148dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="756dp"
+            android:text="Contact me"
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/labellocation"
+            android:layout_width="109dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="964dp"
+            android:text="Loaction"
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.026"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/signout"
+            android:layout_width="326dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="1284dp"
+            android:backgroundTint="#C6355EC6"
+            android:text="Sign out"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.564"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="218dp"
+            android:layout_height="202dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="30dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/editname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/p1" />
+
+        <!-- Username Label -->
+        <TextView
+            android:id="@+id/labelUsername"
+            android:layout_width="118dp"
+            android:layout_height="38dp"
+            android:text="User name"
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileImage" />
+
+        <!-- Username Input -->
+        <EditText
+            android:id="@+id/editname"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/box"
+            android:hint="Enter name"
+            android:paddingStart="16dp"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelUsername" />
+
+        <!-- Type Label -->
+        <TextView
+            android:id="@+id/labelType"
+            android:layout_width="126dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:text="Type"
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editname" />
+
+        <!-- Type Input -->
+        <EditText
+            android:id="@+id/editType"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/box"
+            android:hint="Enter type"
+            android:paddingStart="16dp"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelType" />
+
+        <!-- Fingerprint Label -->
+        <TextView
+            android:id="@+id/labelFinger"
+            android:layout_width="132dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:text="Fingerprint"
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editType" />
+
+        <!-- Fingerprint Switch -->
+
+        <!-- About Me Label -->
+
+        <!-- About Me Input -->
+
+        <!-- Bottom margin -->
+
+        <Switch
+            android:id="@+id/finger"
+            android:layout_width="154dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="484dp"
+            android:text="Finger print"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.094"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
