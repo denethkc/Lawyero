@@ -11,16 +11,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    // UI elements
     Button signin;
     TextView signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // or your correct layout here
+        setContentView(R.layout.activity_main);
+
+        // Initialize Firebase
         FirebaseApp.initializeApp(this);
 
-        // Sign In Button
+        //  Sign In Button: navigate to login activity
         signin = findViewById(R.id.signin);
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Sign Up TextView
+        //  Sign Up TextView: navigate to signup activity
         signup = findViewById(R.id.signup);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override

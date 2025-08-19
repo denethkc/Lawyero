@@ -4,6 +4,8 @@
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lawyero"
         tools:targetApi="31">
+        <activity
+            android:name=".searchMap"
+            android:exported="false" />
+        <activity
+            android:name=".lawReview"
+            android:exported="false" />
         <activity
             android:name=".cusAppoinment"
             android:exported="false" />

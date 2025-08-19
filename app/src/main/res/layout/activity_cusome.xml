@@ -12,16 +12,17 @@
         android:id="@+id/greeting"
         android:layout_width="394dp"
         android:layout_height="67dp"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Hello!"
         android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
         android:textSize="40sp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.024"
-        app:layout_constraintHorizontal_bias="0.47" />
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
 
     <!-- Ask AI Button -->
 
@@ -71,14 +72,14 @@
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="409dp"
-        android:layout_height="233dp"
+        android:layout_width="412dp"
+        android:layout_height="283dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.833">
+        app:layout_constraintVertical_bias="0.836">
 
         <LinearLayout
             android:id="@+id/lawyerContainer"
@@ -91,8 +92,9 @@
         android:id="@+id/textView3"
         android:layout_width="201dp"
         android:layout_height="32dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Featured Lawyers"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView3"

@@ -16,6 +16,7 @@
         android:id="@+id/applyFilterBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Apply Filter"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#6DBAD8"
+        android:text="Apply Filter" />
 </LinearLayout>

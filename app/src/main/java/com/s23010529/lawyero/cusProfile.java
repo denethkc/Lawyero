@@ -1,10 +1,8 @@
 package com.s23010529.lawyero;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,22 +14,24 @@ import com.google.firebase.firestore.*;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class cusProfile extends AppCompatActivity {
 
     private EditText userNameEditText, emailEditText;
     private Switch fingerprintSwitch;
     private Button btnSave, btnSignOut, btnDelete, btnAdmin;
 
+    // Firebase
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private String uid;
+    private String uid; // logged-in user ID
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cus_profile);
 
-        // UI references
+        // 🔹 Initialize UI
         userNameEditText = findViewById(R.id.userName);
         emailEditText = findViewById(R.id.email);
         fingerprintSwitch = findViewById(R.id.switch1);
@@ -40,17 +40,18 @@ public class cusProfile extends AppCompatActivity {
         btnDelete = findViewById(R.id.delete);
         btnAdmin = findViewById(R.id.admin);
 
-        // Firebase
+        // 🔹 Firebase
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+        // Load profile of current user
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             uid = currentUser.getUid();
             loadUserData();
         }
 
-        // Save button updates Firestore
+        // Save changes to Firestore
         btnSave.setOnClickListener(v -> {
             String newName = userNameEditText.getText().toString().trim();
             String newEmail = emailEditText.getText().toString().trim();
@@ -89,13 +90,14 @@ public class cusProfile extends AppCompatActivity {
                     .show();
         });
 
-        // Contact admin button (optional implementation)
+        // Contact admin (placeholder)
         btnAdmin.setOnClickListener(v ->
                 Toast.makeText(this, "Contacting admin...", Toast.LENGTH_SHORT).show());
 
-        // Bottom Navigation
+        // Bottom Navigation setup
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.nav_profile);
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
@@ -108,10 +110,13 @@ public class cusProfile extends AppCompatActivity {
                 startActivity(new Intent(this, cusMap.class));
                 return true;
             }
-            return id == R.id.nav_profile;
+            return id == R.id.nav_profile; // already on profile
         });
     }
 
+    /**
+     * Loads user profile data from Firestore and fills input fields.
+     */
     private void loadUserData() {
         db.collection("users").document(uid)
                 .get()
@@ -119,6 +124,7 @@ public class cusProfile extends AppCompatActivity {
                     if (snapshot.exists()) {
                         userNameEditText.setText(snapshot.getString("username"));
                         emailEditText.setText(snapshot.getString("email"));
+
                         // Optional: fingerprint state
                         Boolean finger = snapshot.getBoolean("fingerprint_enabled");
                         fingerprintSwitch.setChecked(finger != null && finger);
@@ -128,6 +134,12 @@ public class cusProfile extends AppCompatActivity {
                         Toast.makeText(this, "Failed to load profile", Toast.LENGTH_SHORT).show());
     }
 
+    /**
+     * Deletes the current user account:
+     * 1. Removes user document from Firestore.
+     * 2. Deletes user authentication record.
+     * 3. Redirects back to main screen.
+     */
     private void deleteAccount() {
         FirebaseUser user = mAuth.getCurrentUser();
         if (user == null) {

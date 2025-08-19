@@ -23,16 +23,20 @@ import java.util.concurrent.Executor;
 
 public class login extends AppCompatActivity {
 
+    // UI elements
     private EditText umail, pass;
     private Button logIn;
 
+    // Firebase instances
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
+    // Biometric authentication
     private Executor executor;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
 
+    // Temporary storage for credentials during fingerprint auth
     private String tempEmail, tempPassword;
 
     @Override
@@ -40,10 +44,11 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Firebase initialization
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // UI
+        // Initialize UI elements
         umail = findViewById(R.id.umail);
         pass = findViewById(R.id.pass);
         logIn = findViewById(R.id.logIn);
@@ -55,6 +60,7 @@ public class login extends AppCompatActivity {
             public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
 
+                // Perform login using previously entered credentials
                 if (!TextUtils.isEmpty(tempEmail) && !TextUtils.isEmpty(tempPassword)) {
                     performLogin(tempEmail, tempPassword);
                 } else {
@@ -81,8 +87,10 @@ public class login extends AppCompatActivity {
                 .setNegativeButtonText("Cancel")
                 .build();
 
+        // Login button click listener
         logIn.setOnClickListener(view -> validateAndLogin());
     }
+
 
     private void validateAndLogin() {
         String email = umail.getText().toString().trim();
@@ -103,13 +111,15 @@ public class login extends AppCompatActivity {
             return;
         }
 
-        // Check fingerprint preference
+        // Check if fingerprint login is enabled in SharedPreferences
         SharedPreferences prefs = getSharedPreferences("LawyeroPrefs", MODE_PRIVATE);
         boolean isFingerprintEnabled = prefs.getBoolean("finger_enabled", false);
 
         if (isFingerprintEnabled) {
             BiometricManager biometricManager = BiometricManager.from(this);
-            if (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG) == BiometricManager.BIOMETRIC_SUCCESS) {
+            if (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)
+                    == BiometricManager.BIOMETRIC_SUCCESS) {
+                // Save credentials temporarily and trigger fingerprint auth
                 tempEmail = email;
                 tempPassword = password;
                 biometricPrompt.authenticate(promptInfo);
@@ -117,10 +127,14 @@ public class login extends AppCompatActivity {
                 Toast.makeText(this, "Biometric not supported on this device", Toast.LENGTH_SHORT).show();
             }
         } else {
+            // Perform normal email/password login
             performLogin(email, password);
         }
     }
 
+    /**
+     * Perform Firebase Authentication login
+     */
     private void performLogin(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
@@ -140,6 +154,9 @@ public class login extends AppCompatActivity {
                 });
     }
 
+    /**
+     * After login, fetch user role from Firestore and navigate accordingly
+     */
     private void navigateBasedOnRole(String uid) {
         db.collection("users").document(uid).get()
                 .addOnSuccessListener(documentSnapshot -> {
@@ -154,7 +171,7 @@ public class login extends AppCompatActivity {
                             Toast.makeText(login.this, "User role not set.", Toast.LENGTH_SHORT).show();
                         }
 
-                        finish();
+                        finish(); // Close login activity
                     } else {
                         Toast.makeText(login.this, "User data not found.", Toast.LENGTH_SHORT).show();
                     }

@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <!-- Background color inside the EditText -->
-    <solid android:color="#94A9E2" />
+    <solid android:color="#4C538F" />
 
     <!-- Border color and width -->
     <stroke

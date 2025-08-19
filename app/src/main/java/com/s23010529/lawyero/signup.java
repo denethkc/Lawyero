@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,18 +29,24 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        // Initialize Firebase Auth and Firestore
         mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance(); // initialize Firestore
+        db = FirebaseFirestore.getInstance();
 
+        // Link UI elements
         usernameEditText = findViewById(R.id.username);
         emailEditText = findViewById(R.id.email);
         passwordEditText = findViewById(R.id.password);
         cpasswordEditText = findViewById(R.id.cpassword);
         signUpButton = findViewById(R.id.signUp);
 
+        // Set click listener for signup button
         signUpButton.setOnClickListener(v -> validateAndRegister());
     }
 
+    /**
+     * Validates input fields and creates a new Firebase user
+     */
     private void validateAndRegister() {
         String name = usernameEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
@@ -87,10 +92,8 @@ public class signup extends AppCompatActivity {
 
                         // Save user data in Firestore
                         Map<String, Object> userMap = new HashMap<>();
-                        userMap.put("username", name); // from signup.java
-                        userMap.put("email", email); // Optional
-                        // Do not store password!
-                        // Role will be added later in role.java
+                        userMap.put("username", name);
+                        userMap.put("email", email);
 
                         db.collection("users").document(uid)
                                 .set(userMap)
@@ -108,6 +111,7 @@ public class signup extends AppCompatActivity {
                                 });
 
                     } else {
+                        // Handle registration errors
                         if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                             emailEditText.setError("Email already registered");
                         } else {

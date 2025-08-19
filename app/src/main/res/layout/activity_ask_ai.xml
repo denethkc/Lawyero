@@ -22,14 +22,16 @@
         android:id="@+id/greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello!\nHow can I help you?"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textAlignment="center"
+        android:fontFamily="serif"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/emoji"
+        android:text="Hello!\nHow can I help you?"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/emoji" />
 
     <!-- Chat ScrollView -->
     <ScrollView

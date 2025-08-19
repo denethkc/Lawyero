@@ -9,19 +9,20 @@
 
     <TextView
         android:id="@+id/user"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
+        android:layout_width="193dp"
+        android:layout_height="60dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="User name"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.099" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -37,17 +38,19 @@
 
     <TextView
         android:id="@+id/type"
-        android:layout_width="176dp"
-        android:layout_height="29dp"
+        android:layout_width="182dp"
+        android:layout_height="23dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="type"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.162" />
 
     <ImageButton
         android:id="@+id/profile"
@@ -87,8 +90,9 @@
         android:layout_width="195dp"
         android:layout_height="37dp"
         android:layout_marginTop="228dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Reminders"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -100,8 +104,9 @@
         android:layout_width="195dp"
         android:layout_height="37dp"
         android:layout_marginTop="528dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Reviews"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.074"
@@ -124,8 +129,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="412dp"
-        android:layout_height="165dp"
+        android:id="@+id/reviewScroll"
+        android:layout_width="410dp"
+        android:layout_height="347dp"
         android:layout_marginTop="564dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -133,6 +139,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/reviewContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
